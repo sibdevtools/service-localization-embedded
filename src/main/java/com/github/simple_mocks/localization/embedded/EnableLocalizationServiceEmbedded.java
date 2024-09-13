@@ -1,5 +1,8 @@
 package com.github.simple_mocks.localization.embedded;
 
+import com.github.simple_mocks.localization.embedded.conf.LocalizationServiceEmbeddedConfig;
+import org.springframework.context.annotation.Import;
+
 import java.lang.annotation.*;
 
 /**
@@ -11,5 +14,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Documented
+@Import(LocalizationServiceEmbeddedConfig.class)
 public @interface EnableLocalizationServiceEmbedded {
 }
