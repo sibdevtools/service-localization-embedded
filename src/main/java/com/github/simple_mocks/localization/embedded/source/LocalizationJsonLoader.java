@@ -9,18 +9,16 @@ import com.github.simple_mocks.localization_service.mutable.api.dto.Localization
 import com.github.simple_mocks.localization_service.mutable.api.rq.AddLocalizationsRq;
 import com.github.simple_mocks.localization_service.mutable.api.service.MutableLocalizationService;
 import com.github.simple_mocks.localization_service.mutable.api.source.LocalizationJsonSource;
-import com.github.simple_mocks.localization_service.mutable.api.source.LocalizationJsonSources;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
-import org.springframework.core.io.FileUrlResource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.Locale;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -36,37 +34,32 @@ public class LocalizationJsonLoader {
     private final MutableLocalizationService mutableLocalizationService;
     private final ObjectMapper objectMapper;
     private final ApplicationContext context;
+    private final ResourceLoader resourceLoader;
 
     public LocalizationJsonLoader(MutableLocalizationService mutableLocalizationService,
                                   @Qualifier("localizationServiceObjectMapper")
                                   ObjectMapper objectMapper,
-                                  ApplicationContext context) {
+                                  ApplicationContext context,
+                                  ResourceLoader resourceLoader) {
         this.mutableLocalizationService = mutableLocalizationService;
         this.objectMapper = objectMapper;
         this.context = context;
+        this.resourceLoader = resourceLoader;
     }
 
     @EventListener(ContextRefreshedEvent.class)
     public void contextRefreshedEvent() {
-        var beans = context.getBeanNamesForAnnotation(LocalizationJsonSources.class);
+        var beans = context.getBeanNamesForAnnotation(LocalizationJsonSource.class);
         for (var bean : beans) {
-            var sources = context.findAnnotationOnBean(bean, LocalizationJsonSources.class);
-            if (sources == null) {
-                continue;
-            }
-            for (var source : sources.value()) {
+            var sources = context.findAllAnnotationsOnBean(bean, LocalizationJsonSource.class, true);
+            for (var source : sources) {
                 loadLocalizations(source);
             }
         }
     }
 
     private void loadLocalizations(LocalizationJsonSource source) {
-        FileUrlResource resource;
-        try {
-            resource = new FileUrlResource(source.path());
-        } catch (MalformedURLException e) {
-            throw new LocalizationLoadingException("Source path invalid exception", e);
-        }
+        var resource = resourceLoader.getResource(source.path());
         var localizationId = new LocalizationSourceId(source.systemCode(), source.kindCode());
         var locale = Locale.of(source.iso3Code());
         Map<String, String> jsonLocalizations;
