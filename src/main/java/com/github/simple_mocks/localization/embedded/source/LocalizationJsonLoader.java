@@ -35,16 +35,19 @@ import java.util.stream.Collectors;
 public class LocalizationJsonLoader {
     private final MutableLocalizationService mutableLocalizationService;
     private final ObjectMapper objectMapper;
+    private final ApplicationContext context;
 
     public LocalizationJsonLoader(MutableLocalizationService mutableLocalizationService,
                                   @Qualifier("localizationServiceObjectMapper")
-                                  ObjectMapper objectMapper) {
+                                  ObjectMapper objectMapper,
+                                  ApplicationContext context) {
         this.mutableLocalizationService = mutableLocalizationService;
         this.objectMapper = objectMapper;
+        this.context = context;
     }
 
     @EventListener(ContextRefreshedEvent.class)
-    public void contextRefreshedEvent(ApplicationContext context) {
+    public void contextRefreshedEvent() {
         var beans = context.getBeanNamesForAnnotation(LocalizationJsonSources.class);
         for (var bean : beans) {
             var sources = context.findAnnotationOnBean(bean, LocalizationJsonSources.class);
