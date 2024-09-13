@@ -1,6 +1,6 @@
-package com.github.simple_mocks.localization.embedded;
+package com.github.simplemocks.localization.embedded;
 
-import com.github.simple_mocks.localization.embedded.conf.LocalizationServiceEmbeddedConfig;
+import com.github.simplemocks.localization.embedded.conf.LocalizationServiceEmbeddedConfig;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.*;

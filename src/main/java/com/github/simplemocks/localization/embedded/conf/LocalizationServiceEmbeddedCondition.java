@@ -1,7 +1,7 @@
-package com.github.simple_mocks.localization.embedded.conf;
+package com.github.simplemocks.localization.embedded.conf;
 
 
-import com.github.simple_mocks.localization.embedded.EnableLocalizationServiceEmbedded;
+import com.github.simplemocks.localization.embedded.EnableLocalizationServiceEmbedded;
 import jakarta.annotation.Nonnull;
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;

@@ -1,15 +1,15 @@
-package com.github.simple_mocks.localization.embedded.service;
+package com.github.simplemocks.localization.embedded.service;
 
-import com.github.simple_mocks.content.mutable.api.rq.CreateContentGroupRq;
-import com.github.simple_mocks.content.mutable.api.rq.CreateContentRq;
-import com.github.simple_mocks.content.mutable.api.rq.CreateSystemRq;
-import com.github.simple_mocks.content.mutable.api.rq.DeleteContentRq;
-import com.github.simple_mocks.content.mutable.api.service.MutableContentService;
-import com.github.simple_mocks.localization.embedded.conf.LocalizationServiceEmbeddedCondition;
-import com.github.simple_mocks.localization.embedded.constants.Constants;
-import com.github.simple_mocks.localization_service.mutable.api.rq.AddLocalizationsRq;
-import com.github.simple_mocks.localization_service.mutable.api.rq.DeleteLocalizationsRq;
-import com.github.simple_mocks.localization_service.mutable.api.service.MutableLocalizationService;
+import com.github.simplemocks.content.mutable.api.rq.CreateContentGroupRq;
+import com.github.simplemocks.content.mutable.api.rq.CreateContentRq;
+import com.github.simplemocks.content.mutable.api.rq.CreateSystemRq;
+import com.github.simplemocks.content.mutable.api.rq.DeleteContentRq;
+import com.github.simplemocks.content.mutable.api.service.MutableContentService;
+import com.github.simplemocks.localization.embedded.conf.LocalizationServiceEmbeddedCondition;
+import com.github.simplemocks.localization.embedded.constants.Constants;
+import com.github.simplemocks.localization_service.mutable.api.rq.AddLocalizationsRq;
+import com.github.simplemocks.localization_service.mutable.api.rq.DeleteLocalizationsRq;
+import com.github.simplemocks.localization_service.mutable.api.service.MutableLocalizationService;
 import jakarta.annotation.Nonnull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Conditional;

@@ -1,6 +1,6 @@
-package com.github.simple_mocks.localization.embedded.constants;
+package com.github.simplemocks.localization.embedded.constants;
 
-import com.github.simple_mocks.error_service.api.dto.ErrorSourceId;
+import com.github.simplemocks.error_service.api.dto.ErrorSourceId;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 

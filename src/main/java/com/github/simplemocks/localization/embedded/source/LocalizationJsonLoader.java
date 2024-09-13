@@ -1,14 +1,14 @@
-package com.github.simple_mocks.localization.embedded.source;
+package com.github.simplemocks.localization.embedded.source;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.simple_mocks.localization.embedded.conf.LocalizationServiceEmbeddedCondition;
-import com.github.simple_mocks.localization.embedded.exception.LocalizationLoadingException;
-import com.github.simple_mocks.localization_service.api.dto.LocalizationSourceId;
-import com.github.simple_mocks.localization_service.api.dto.LocalizedText;
-import com.github.simple_mocks.localization_service.mutable.api.dto.LocalizationKey;
-import com.github.simple_mocks.localization_service.mutable.api.rq.AddLocalizationsRq;
-import com.github.simple_mocks.localization_service.mutable.api.service.MutableLocalizationService;
-import com.github.simple_mocks.localization_service.mutable.api.source.LocalizationJsonSource;
+import com.github.simplemocks.localization.embedded.conf.LocalizationServiceEmbeddedCondition;
+import com.github.simplemocks.localization.embedded.exception.LocalizationLoadingException;
+import com.github.simplemocks.localization_service.api.dto.LocalizationSourceId;
+import com.github.simplemocks.localization_service.api.dto.LocalizedText;
+import com.github.simplemocks.localization_service.mutable.api.dto.LocalizationKey;
+import com.github.simplemocks.localization_service.mutable.api.rq.AddLocalizationsRq;
+import com.github.simplemocks.localization_service.mutable.api.service.MutableLocalizationService;
+import com.github.simplemocks.localization_service.mutable.api.source.LocalizationJsonSource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;

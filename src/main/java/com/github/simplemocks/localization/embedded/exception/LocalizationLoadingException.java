@@ -1,7 +1,7 @@
-package com.github.simple_mocks.localization.embedded.exception;
+package com.github.simplemocks.localization.embedded.exception;
 
-import com.github.simple_mocks.error_service.exception.ServiceException;
-import com.github.simple_mocks.localization.embedded.constants.Constants;
+import com.github.simplemocks.error_service.exception.ServiceException;
+import com.github.simplemocks.localization.embedded.constants.Constants;
 import jakarta.annotation.Nonnull;
 
 /**

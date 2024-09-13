@@ -1,4 +1,4 @@
-package com.github.simple_mocks.localization.embedded.conf;
+package com.github.simplemocks.localization.embedded.conf;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
