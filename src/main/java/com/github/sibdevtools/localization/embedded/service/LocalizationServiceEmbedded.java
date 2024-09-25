@@ -1,31 +1,30 @@
-package com.github.simplemocks.localization.embedded.service;
+package com.github.sibdevtools.localization.embedded.service;
 
-import com.github.simplemocks.content.api.condition.EqualsCondition;
-import com.github.simplemocks.content.api.rq.GetContentRq;
-import com.github.simplemocks.content.api.service.ContentService;
-import com.github.simplemocks.error_service.exception.ServiceException;
-import com.github.simplemocks.localization.embedded.conf.LocalizationServiceEmbeddedCondition;
-import com.github.simplemocks.localization.embedded.constants.Constants;
-import com.github.simplemocks.localization_service.api.dto.LocalizedText;
-import com.github.simplemocks.localization_service.api.rq.LocalizeRq;
-import com.github.simplemocks.localization_service.api.rs.LocalizeRs;
-import com.github.simplemocks.localization_service.api.service.LocalizationService;
+import com.github.sibdevtools.content.api.condition.EqualsCondition;
+import com.github.sibdevtools.content.api.rq.GetContentRq;
+import com.github.sibdevtools.content.api.service.ContentService;
+import com.github.sibdevtools.error.exception.ServiceException;
+import com.github.sibdevtools.localization.api.dto.LocalizedText;
+import com.github.sibdevtools.localization.api.rq.LocalizeRq;
+import com.github.sibdevtools.localization.api.rs.LocalizeRs;
+import com.github.sibdevtools.localization.api.service.LocalizationService;
+import com.github.sibdevtools.localization.embedded.constants.Constants;
 import jakarta.annotation.Nonnull;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.github.simplemocks.localization.embedded.constants.Constants.TYPE_TEXT;
+import static com.github.sibdevtools.localization.embedded.constants.Constants.TYPE_TEXT;
 
 /**
  * @author sibmaks
  * @since 0.0.1
  */
 @Slf4j
-@Component
-@Conditional(LocalizationServiceEmbeddedCondition.class)
+@Service
+@ConditionalOnProperty(name = "service.localization.mode", havingValue = "EMBEDDED")
 public class LocalizationServiceEmbedded implements LocalizationService {
 
     private final ContentService contentService;

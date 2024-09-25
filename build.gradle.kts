@@ -49,10 +49,10 @@ dependencies {
 
     implementation("jakarta.annotation:jakarta.annotation-api")
 
-    implementation("com.github.simple-mocks:api-common:${project.property("lib_api_common_version")}")
-    implementation("com.github.simple-mocks:api-error:${project.property("lib_api_error_version")}")
-    implementation("com.github.simple-mocks:api-localization:${project.property("lib_api_localization_version")}")
-    implementation("com.github.simple-mocks:api-content:${project.property("lib_api_content_version")}")
+    implementation("com.github.sibdevtools:api-common:${project.property("lib_api_common_version")}")
+    implementation("com.github.sibdevtools:api-error:${project.property("lib_api_error_version")}")
+    implementation("com.github.sibdevtools:api-localization:${project.property("lib_api_localization_version")}")
+    implementation("com.github.sibdevtools:api-content:${project.property("lib_api_content_version")}")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
@@ -116,7 +116,7 @@ publishing {
             from(components["java"])
             pom {
                 packaging = "jar"
-                url = "https://github.com/simple-mocks/service-localization-embedded"
+                url = "https://github.com/sibdevtools/service-localization-embedded"
 
                 licenses {
                     license {
@@ -126,9 +126,9 @@ publishing {
                 }
 
                 scm {
-                    connection.set("scm:https://github.com/simple-mocks/service-localization-embedded.git")
-                    developerConnection.set("scm:git:ssh://github.com/simple-mocks")
-                    url.set("https://github.com/simple-mocks/service-localization-embedded")
+                    connection.set("scm:https://github.com/sibdevtools/service-localization-embedded.git")
+                    developerConnection.set("scm:git:ssh://github.com/sibdevtools")
+                    url.set("https://github.com/sibdevtools/service-localization-embedded")
                 }
 
                 developers {

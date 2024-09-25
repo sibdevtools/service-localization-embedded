@@ -1,4 +1,4 @@
-package com.github.simplemocks.localization.embedded.conf;
+package com.github.sibdevtools.localization.embedded.conf;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -7,8 +7,10 @@ import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
-import com.github.simplemocks.error_service.mutable.api.source.ErrorLocalizationsJsonSource;
+import com.github.sibdevtools.error.mutable.api.source.ErrorLocalizationsJsonSource;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @author sibmaks
@@ -24,6 +26,8 @@ import org.springframework.context.annotation.Bean;
         iso3Code = "rus",
         path = "classpath:/embedded/content/localization/errors/rus.json"
 )
+@Configuration
+@ConditionalOnProperty(name = "service.localization.mode", havingValue = "EMBEDDED")
 public class LocalizationServiceEmbeddedConfig {
 
     @Bean("localizationServiceObjectMapper")
