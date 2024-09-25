@@ -1,4 +1,4 @@
-# Simple Mock - Localization Embedded
+# SibDevTools - Localization Embedded
 
 ## To build
 

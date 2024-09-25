@@ -1,6 +1,6 @@
-package com.github.simplemocks.localization.embedded.constants;
+package com.github.sibdevtools.localization.embedded.constants;
 
-import com.github.simplemocks.error_service.api.dto.ErrorSourceId;
+import com.github.sibdevtools.error.api.dto.ErrorSourceId;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class Constants {
-    public static final String CONTENT_TYPE = "simple-mocks.localizations";
+    public static final String CONTENT_TYPE = "sibdevtools.localizations";
     public static final ErrorSourceId ERROR_SOURCE_ID = new ErrorSourceId("LOCALIZATION_SERVICE");
 
     public static final String ATTRIBUTE_LOCALE = "locale";

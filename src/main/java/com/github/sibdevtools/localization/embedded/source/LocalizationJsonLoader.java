@@ -1,18 +1,17 @@
-package com.github.simplemocks.localization.embedded.source;
+package com.github.sibdevtools.localization.embedded.source;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.simplemocks.localization.embedded.conf.LocalizationServiceEmbeddedCondition;
-import com.github.simplemocks.localization.embedded.exception.LocalizationLoadingException;
-import com.github.simplemocks.localization_service.api.dto.LocalizationSourceId;
-import com.github.simplemocks.localization_service.api.dto.LocalizedText;
-import com.github.simplemocks.localization_service.mutable.api.dto.LocalizationKey;
-import com.github.simplemocks.localization_service.mutable.api.rq.AddLocalizationsRq;
-import com.github.simplemocks.localization_service.mutable.api.service.MutableLocalizationService;
-import com.github.simplemocks.localization_service.mutable.api.source.LocalizationJsonSource;
+import com.github.sibdevtools.localization.api.dto.LocalizationSourceId;
+import com.github.sibdevtools.localization.api.dto.LocalizedText;
+import com.github.sibdevtools.localization.embedded.exception.LocalizationLoadingException;
+import com.github.sibdevtools.localization.mutable.api.dto.LocalizationKey;
+import com.github.sibdevtools.localization.mutable.api.rq.AddLocalizationsRq;
+import com.github.sibdevtools.localization.mutable.api.service.MutableLocalizationService;
+import com.github.sibdevtools.localization.mutable.api.source.LocalizationJsonSource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Conditional;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.io.ResourceLoader;
@@ -29,7 +28,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-@Conditional(LocalizationServiceEmbeddedCondition.class)
+@ConditionalOnProperty(name = "service.localization.mode", havingValue = "EMBEDDED")
 public class LocalizationJsonLoader {
     private final MutableLocalizationService mutableLocalizationService;
     private final ObjectMapper objectMapper;

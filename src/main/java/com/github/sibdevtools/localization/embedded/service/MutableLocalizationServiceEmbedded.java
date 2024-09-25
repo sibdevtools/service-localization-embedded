@@ -1,19 +1,18 @@
-package com.github.simplemocks.localization.embedded.service;
+package com.github.sibdevtools.localization.embedded.service;
 
-import com.github.simplemocks.content.mutable.api.rq.CreateContentGroupRq;
-import com.github.simplemocks.content.mutable.api.rq.CreateContentRq;
-import com.github.simplemocks.content.mutable.api.rq.CreateSystemRq;
-import com.github.simplemocks.content.mutable.api.rq.DeleteContentRq;
-import com.github.simplemocks.content.mutable.api.service.MutableContentService;
-import com.github.simplemocks.localization.embedded.conf.LocalizationServiceEmbeddedCondition;
-import com.github.simplemocks.localization.embedded.constants.Constants;
-import com.github.simplemocks.localization_service.mutable.api.rq.AddLocalizationsRq;
-import com.github.simplemocks.localization_service.mutable.api.rq.DeleteLocalizationsRq;
-import com.github.simplemocks.localization_service.mutable.api.service.MutableLocalizationService;
+import com.github.sibdevtools.content.mutable.api.rq.CreateContentGroupRq;
+import com.github.sibdevtools.content.mutable.api.rq.CreateContentRq;
+import com.github.sibdevtools.content.mutable.api.rq.CreateSystemRq;
+import com.github.sibdevtools.content.mutable.api.rq.DeleteContentRq;
+import com.github.sibdevtools.content.mutable.api.service.MutableContentService;
+import com.github.sibdevtools.localization.embedded.constants.Constants;
+import com.github.sibdevtools.localization.mutable.api.rq.AddLocalizationsRq;
+import com.github.sibdevtools.localization.mutable.api.rq.DeleteLocalizationsRq;
+import com.github.sibdevtools.localization.mutable.api.service.MutableLocalizationService;
 import jakarta.annotation.Nonnull;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
@@ -22,8 +21,8 @@ import java.util.Map;
  * @since 0.0.1
  */
 @Slf4j
-@Component
-@Conditional(LocalizationServiceEmbeddedCondition.class)
+@Service
+@ConditionalOnProperty(name = "service.localization.mode", havingValue = "EMBEDDED")
 public class MutableLocalizationServiceEmbedded implements MutableLocalizationService {
     private final MutableContentService mutableContentService;
 
