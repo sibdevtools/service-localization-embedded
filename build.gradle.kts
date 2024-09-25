@@ -8,7 +8,10 @@ plugins {
     id("io.spring.dependency-management") version "1.1.6"
 }
 
-version = "${project.property("version")}"
+val versionFromProperty = "${project.property("version")}"
+val versionFromEnv: String? = System.getenv("VERSION")
+
+version = versionFromEnv ?: versionFromProperty
 group = "${project.property("group")}"
 
 val targetJavaVersion = (project.property("jdk_version") as String).toInt()
